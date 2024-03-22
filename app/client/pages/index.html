@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="../index.js"></script>
+  <title>Website Name</title>
+</head>
+
+<body>
+  <section class="hero is-primary">
+    <div class="hero-body">
+        <div class="container has-text-centered">
+            <p class="title"> Website Name </p>
+            <p class="subtitle"> Buggy Website </p>
+        </div>
+    </div>
+    </div>
+  </section> 
+
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-menu is-active">
+        <div class="navbar-start">
+            <a class="navbar-item" href="/">
+              Home
+            </a>
+            <a class="navbar-item" href="/bug1">
+              Bug1
+            </a>
+            <a class="navbar-item" href="/bug2">
+              Bug2
+            </a>
+            <a class="navbar-item" href="/bug3">
+              Bug3
+            </a>
+          </div>
+    </div>
+  </nav>
+</body>
+
+<h1>Welcome to buggy website. choose security level</h1>
+
+<form id="sec-form" action="/security" method="post">
+  <div class="field has-addons">
+    <div class="control">
+      <div class="select">
+        <select name="Security Level">
+          <option value="Low">Low</option>
+          <option value="Medium">Medium</option>
+          <option value="High">High</option>
+        </select>
+      </div>
+    </div>
+    <div class="control">
+      <button type="submit" class="button is-primary">Choose</button>
+    </div>
+  </div>
+</form> 
+
+</html>
