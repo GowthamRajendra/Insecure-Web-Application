@@ -1,4 +1,3 @@
-// on load 
 document.addEventListener('DOMContentLoaded', function() {
 
     if (document.getElementById('sec-level') !== null) {
@@ -7,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // get security level cookie
         let cookie = document.cookie.split(';').find(cookie => cookie.includes('security'));
         let securityLevel = cookie ? cookie.split('=')[1] : 'Low';
-        securityText += securityLevel;
+        securityText = securityText + " " + securityLevel;
         document.getElementById('sec-level').innerText = securityText;
     }
 
