@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
-const bug1 = require("./routes/bug1.js");
+const xxe = require("./routes/xxe/xxeServer.js");
 const bug2 = require("./routes/bug2.js");
 const bug3 = require("./routes/bug3.js");
 
@@ -12,7 +12,7 @@ app.use(express.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.json());
 
-app.use('/bug1', bug1);
+app.use('/xxe', xxe);
 app.use('/bug2', bug2);
 app.use('/bug3', bug3);
 
