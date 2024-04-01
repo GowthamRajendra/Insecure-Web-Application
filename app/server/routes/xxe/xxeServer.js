@@ -46,20 +46,7 @@ router.get('/getBlogs', (req, res) => {
                 res.status(500).send('Internal Server Error. Could not parse the xml file.');
                 return;
             }
-             
-            // loop through the blogs 
-            // result.blogs.blog.forEach(blog =>  {
-            //     let image = fs.readFileSync(path.join(__dirname, blog.image[0]), 'utf-8');
-            //     // encode the image in base64
-            //     let imagebase64 = Buffer.from(image).toString('base64');
-            //     // retain extension
-            //     let ext = path.extname(blog.image[0]);
-            //     blog.image = 'data:image/' + ext + ';base64,' + imagebase64;
-            //     // blog.image = path.join(__dirname, blog.image[0]);
-            // });
-
-            // console.log(result.blogs.blog);
-
+            
             res.send(result);
         });
     });

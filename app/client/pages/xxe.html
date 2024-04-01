@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
   <link rel="stylesheet" href="style.css">
   <script src="../scripts/index.js"></script>
-  <script src="../scripts/bug1.js"></script>
+  <script src="../scripts/xxe.js"></script>
   <title>Website Name</title>
 </head>
 
@@ -28,8 +28,8 @@
         <a class="navbar-item" href="/">
           Home
         </a>
-        <a class="navbar-item" href="/bug1">
-          Bug1
+        <a class="navbar-item" href="/xxe">
+          XXE
         </a>
         <a class="navbar-item" href="/bug2">
           Bug2
@@ -45,8 +45,13 @@
 
   <div class="columns is-centered">
     <div class="column is-half">
-      <h1 class="my-5">BUG 1</h1>
-      <h2 id="sec-level">Security Level: </h2>
+      <p class="my-5 title is-3 has-text-centered">XML External Entity (XXE) Injection</p>
+      <p id="sec-level" class="subtitle is-5 has-text-centered">Security Level: </p>
+      <hr>  
+      <div id="blogs">
+        <p class="my-5 title is-3 has-text-centered">Bloggy</p>
+        <p class="subtitle is-5 has-text-centered">Read the latest blog posts</p>
+      </div>
     </div>
   </div>
 
