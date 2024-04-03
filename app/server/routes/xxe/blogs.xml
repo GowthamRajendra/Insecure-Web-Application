@@ -1,21 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE foo [ 
-    <!ENTITY xxe SYSTEM "file:///C:/Users/gowth/OneDrive/Documents/Fourth_Year/Software_Security/majorgroupproject2-wang-pogaku-rajendra/app/server/routes/xxe/test.txt">
-    <!ENTITY auth "Anon"> 
+<!DOCTYPE foo [
+<!-- <!ENTITY xxe SYSTEM "file:///C:/Users/gowth/OneDrive/Documents/Fourth_Year/Software_Security/majorgroupproject2-wang-pogaku-rajendra/app/server/routes/xxe/test.txt"> --><!ENTITY auth "Anonymous">
+<!ENTITY author "Anonymous">
 ]>
+<!-- <author><foo xmlns:xi="http://www.w3.org/2001/XInclude"><xi:include parse="text" href="file:///C:/Users/gowth/OneDrive/Documents/Fourth_Year/Software_Security/majorgroupproject2-wang-pogaku-rajendra/app/server/routes/xxe/test.txt"/></foo></author> -->
 <blogs>
-    <blog>
-            <image>image1.jpg</image>
-            <title>Eggs</title>
-            <content>Easter? Eggs.</content>
-            <author>John Doe</author>
-            <date>2024-01-01</date>
-    </blog>
-    <blog>
-            <image>image2.jpg</image>
-            <title>Dogs</title>
-            <content>I love dogs.</content>
-            <author><foo xmlns:xi="http://www.w3.org/2001/XInclude"><xi:include parse="text" href="file:///C:/Users/gowth/OneDrive/Documents/Fourth_Year/Software_Security/majorgroupproject2-wang-pogaku-rajendra/app/server/routes/xxe/test.txt"/></foo></author>
-            <date>2024-02-01</date>
-    </blog>
+  <blog>
+    <image>image-1712104730658.jpg</image>
+    <title>Eggs</title>
+    <content>Easter? Eggs.</content>
+    <author>John Doe</author>
+    <date>Apr 02 2024</date>
+  </blog>
+  <blog>
+    <image>image-1712104768894.jpg</image>
+    <title>Dogs</title>
+    <content>I love dogs.</content>
+    <author>Jane Dane</author>
+    <date>Apr 02 2024</date>
+  </blog>
+  <blog>
+    <image>image-1712116030201.svg</image>
+    <title>a</title>
+    <content>a</content>
+    <date>Apr 02 2024</date>
+    <author>Anonymous</author>
+  </blog>
 </blogs>
