@@ -1,29 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE foo [
-<!-- <!ENTITY xxe SYSTEM "file:///C:/Users/gowth/OneDrive/Documents/Fourth_Year/Software_Security/majorgroupproject2-wang-pogaku-rajendra/app/server/routes/xxe/test.txt"> --><!ENTITY auth "Anonymous">
-<!ENTITY author "Anonymous">
+<!ENTITY xxe SYSTEM "file:///C:/Users/gowth/OneDrive/Documents/Fourth_Year/Software_Security/majorgroupproject2-wang-pogaku-rajendra/app/server/routes/xxe/test.txt">
 ]>
-<!-- <author><foo xmlns:xi="http://www.w3.org/2001/XInclude"><xi:include parse="text" href="file:///C:/Users/gowth/OneDrive/Documents/Fourth_Year/Software_Security/majorgroupproject2-wang-pogaku-rajendra/app/server/routes/xxe/test.txt"/></foo></author> -->
 <blogs>
   <blog>
-    <image>image-1712104730658.jpg</image>
+    <image>image-1712180186914.jpg</image>
     <title>Eggs</title>
-    <content>Easter? Eggs.</content>
+    <content>Easter Eggs.</content>
     <author>John Doe</author>
-    <date>Apr 02 2024</date>
+    <date>Apr 03 2024</date>
   </blog>
   <blog>
-    <image>image-1712104768894.jpg</image>
+    <image>image-1712180211976.jpg</image>
     <title>Dogs</title>
     <content>I love dogs.</content>
     <author>Jane Dane</author>
-    <date>Apr 02 2024</date>
+    <date>Apr 03 2024</date>
   </blog>
   <blog>
-    <image>image-1712116030201.svg</image>
-    <title>a</title>
+    <image>image-1712180246917.svg</image>
+    <title>Pen</title>
+    <content>svg mage</content>
+    <date>Apr 03 2024</date>
+    <author>Anonymous</author>
+  </blog>
+  <blog>
+    <image>image-1712180382995.svg</image>
+    <title>svg with xxe</title>
+    <content>ss</content>
+    <date>Apr 03 2024</date>
+    <author>Anonymous</author>
+  </blog>
+  <blog>
+    <image>image-1712207582279.svg</image>
+    <title>med imagw</title>
     <content>a</content>
-    <date>Apr 02 2024</date>
+    <date>Apr 04 2024</date>
     <author>Anonymous</author>
   </blog>
 </blogs>

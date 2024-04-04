@@ -126,26 +126,46 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         // change image name
-        let imageName = 'image-' + Date.now() + image.name.substring(image.name.lastIndexOf('.'));
-        image = new File([image], imageName, {type: image.type});
+        if (image.name != '') {
+            let imageName = 'image-' + Date.now() + image.name.substring(image.name.lastIndexOf('.'));
+            image = new File([image], imageName, {type: image.type});
+        }
 
-        // convert blog to xml
-        let blog = '<blog>';
-        blog += '<image>' + image.name + '</image>';
-        blog += '<title>' + title + '</title>';
-        blog += '<content>' + content + '</content>';
-        blog += '<author>' + author + '</author>';
-        blog += '<date>' + date + '</date>';
-        blog += '</blog>';
+        let cookie = document.cookie.split(';').find(cookie => cookie.includes('security'));
+        let securityLevel = cookie ? cookie.split('=')[1] : 'Low';
+
+        // if the security level is low, send the blog as xml
+        // otherwise send the blog as json
+        // prevent user from editing xml in medium/high security
+        let body;
+
+        if (securityLevel == 'Low') {
+            // convert blog to xml
+            let blog = '<blog>';
+            blog += '<image>' + image.name + '</image>';
+            blog += '<title>' + title + '</title>';
+            blog += '<content>' + content + '</content>';
+            blog += '<author>' + author + '</author>';
+            blog += '<date>' + date + '</date>';
+            blog += '</blog>';
+            
+            body = { "blog": blog };
+        } else {
+            body = {
+                "title": title,
+                "content": content,
+                "author": author,
+                "date": date,
+                "image": image.name
+            };    
+        }
 
         fetch('/xxe/postBlog', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body:  JSON.stringify({
-                "blog": blog,
-            })
+            body:  JSON.stringify(body)
         }).then(response => {
             return response.text();
         }).then(data => {
@@ -165,6 +185,9 @@ document.addEventListener('DOMContentLoaded', function() {
             return response.text();
         }).then(data => {
             console.log(data); // response fromserver
+
+            // clear the form
+            document.getElementById('blog-form').reset();
 
             // reload the page
             window.location.reload();
