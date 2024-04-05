@@ -5,13 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }).then(response => {
         return response.json();
     }).then(data => {
-        // console.log(data);
-        // blogs get turned into an array of objects under the key 'blog'
-        // probably because xml allows multiple elements with the same name
-        // but json does not so it puts them in an array with that name
-        // each blog is now part of the array 
-        let blogs = data.blogs.blog; 
-        console.log(blogs);
+        let blogs = data.blogs;
         let blogElems = document.getElementById('blogs');
         blogs.forEach(blog => {
             let blogElem = createBlogElement(blog);

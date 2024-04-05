@@ -1,7 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE foo [
-<!ENTITY xxe SYSTEM "file:///C:/Users/gowth/OneDrive/Documents/Fourth_Year/Software_Security/majorgroupproject2-wang-pogaku-rajendra/app/server/routes/xxe/test.txt">
-]>
 <blogs>
   <blog>
     <image>image-1712180186914.jpg</image>
@@ -14,7 +11,7 @@
     <image>image-1712180211976.jpg</image>
     <title>Dogs</title>
     <content>I love dogs.</content>
-    <author>Anonymous</author>
+    <author>Jane Dane</author>
     <date>Apr 03 2024</date>
   </blog>
   <blog>
@@ -22,6 +19,6 @@
     <title>Pen</title>
     <content>I created this yesterday.</content>
     <date>Apr 03 2024</date>
-    <author>Jane Dane</author>
+    <author>Anonymous</author>
   </blog>
 </blogs>
