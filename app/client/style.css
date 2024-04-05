@@ -12,3 +12,17 @@
 .navbar-item {
     margin-right: 0px;
 }
+
+#profile-post-container {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+#post-container {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.delete-icon {
+    filter: brightness(0) saturate(100%) invert(16%) sepia(96%) saturate(7212%) hue-rotate(2deg) brightness(104%) contrast(104%);
+}
