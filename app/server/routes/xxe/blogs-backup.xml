@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE foo [
+<!ENTITY xxe SYSTEM "file:///C:/Users/gowth/OneDrive/Documents/Fourth_Year/Software_Security/majorgroupproject2-wang-pogaku-rajendra/app/server/routes/xxe/test.txt">
+]>
 <blogs>
   <blog>
     <image>image-1712180186914.jpg</image>
@@ -10,15 +13,22 @@
   <blog>
     <image>image-1712180211976.jpg</image>
     <title>Dogs</title>
-    <content>I love dogs.</content>
-    <author>Jane Dane</author>
+    <content>I love dogs. It does not matter who I am.</content>
+    <author>Anonymous</author>
     <date>Apr 03 2024</date>
   </blog>
   <blog>
     <image>image-1712180246917.svg</image>
     <title>Pen</title>
-    <content>I created this yesterday.</content>
+    <content>I'm learning to make SVGs. I created this yesterday.</content>
     <date>Apr 03 2024</date>
-    <author>Anonymous</author>
+    <author>Jane Dane</author>
+  </blog>
+  <blog>
+    <image></image>
+    <title>First Blog</title>
+    <content>First Blog. Also, I don't see why blogs need images.</content>
+    <date>Apr 03 2024</date>
+    <author>Joe Madson</author>
   </blog>
 </blogs>

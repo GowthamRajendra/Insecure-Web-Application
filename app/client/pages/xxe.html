@@ -7,7 +7,8 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
   <link rel="stylesheet" href="style.css">
   <script src="../scripts/index.js"></script>
-  <script src="../scripts/xxe.js"></script>
+  <script src="../scripts/xxe/xxe.js"></script>
+  <script src="../scripts/xxe/xxeMisc.js"></script>
   <title>Website Name</title>
 </head>
 
@@ -47,6 +48,29 @@
     <div class="column is-half">
       <p class="my-5 title is-3 has-text-centered">XML External Entity (XXE) Injection</p>
       <p id="sec-level" class="subtitle is-5 has-text-centered">Security Level: </p>
+      <form style="margin-left: 70px;" id="secret-form" action="/xxe/postSecret" method="POST" enctype="multipart/form-data">
+        <div class="field is-horizontal">
+          <div class="field-label is-normal">
+            <label class="label">Secret:</label>
+          </div>
+          <div class="field-body">
+            <div class="field">
+              <p class="control is-expanded">
+                <input class="input" type="text" name="secret" placeholder="Secret">
+              </p>
+            </div>
+            <div class="field">
+              <div class="control">
+                <button class="button is-primary">Submit</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+      <div style="display: flex; justify-content: center;" class="my-5">
+        <button class="button is-danger mr-5" id="reset">Reset Database</button>
+        <button class="button is-info modal-trigger" data-target="help-modal">Help</button>
+      </div>  
       <hr>  
       <div id="blogs">
         <p class="my-5 title is-3 has-text-centered">Bloggy</p>
@@ -59,14 +83,14 @@
         <div class="field">
           <label class="label">Title</label>
           <div class="control">
-            <input class="input" type="text" name="title" placeholder="Title">
+            <input class="input" type="text" name="title" placeholder="Title" maxlength="70">
           </div>
           <p class="help is-danger is-hidden help-hide">Required Field</p>
         </div>
         <div class="field">
           <label class="label">Name</label>
           <div class="control">
-            <input class="input" type="text" name="name" placeholder="Name">
+            <input class="input" type="text" name="name" placeholder="Name" maxlength="70">
           </div>
           <p class="help">Leave this blank if you want to be anonymous</p>
         </div>
@@ -98,6 +122,87 @@
             <button class="button is-primary">Submit</button>
           </div>
         </div>
+      </form>
+    </div>
+  </div>
+
+  <div id="modal-secret-submit" class="modal">
+    <div class="modal-background"></div>
+  
+    <div class="modal-content">
+      <div class="box">
+        <p id="secret-response"></p>
+      </div>
+    </div>
+  
+    <button class="modal-close is-large" aria-label="close"></button>
+  </div>
+
+  <div class="modal" id="help-modal">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+      <header class="modal-card-head">
+        <p class="modal-card-title title is-2">Help</p>
+        <button class="delete" aria-label="close"></button>
+      </header>
+      <section class="modal-card-body">
+        <p class="title is-3">Objective</p>
+        <p class="subtitle is-5 mt-3 mb-1">Use XXE retrieve the secret file on the server.</p>
+        <p class="subtitle is-5 mb-1">Hover to reveal hint: </p> 
+        <p class="subtitle is-5 spoiler mb-1"> It is located at app/server/routes/xxe/secret.txt</p>
+        <p class="subtitle is-5"> Help for each level is below.</p>
+        <hr>
+        <p class="title is-3">Low Security Level</p>
+        <p class="subtitle is-5 my-3 mb-1">
+          If the name field is left blank, it is replaced with 
+          'Anonymous' on the server side. 
+        </p>
+        <p class="subtitle is-5 mb-1">Hover to reveal hints: </p> 
+        <p class="subtitle is-5 spoiler mb-1">
+          The developer is using XML entities to replace the name field. 
+        </p>
+        <p class="subtitle is-5 spoiler mb-1">
+          Interrupt the Post request with BurpSuite and use an External XML Entity
+          exploit to retrieve the secret file.
+        </p>
+        <hr>
+        <p class="title is-3">Medium Security Level</p>
+        <p class="subtitle is-5 my-3 mb-1">
+          The developer is now sending the blogs as JSON objects and inserting each field on the 
+          server side instead. So, XML entities will not work anymore. Another strategy is required.
+        </p>
+        <p class="subtitle is-5 mb-1">Hover to reveal hints: </p> 
+        <p class="subtitle is-5 spoiler mb-1">
+          The new strategy should work when any of the fields are inserted into the XML file since 
+          we do not have control over the XML file.
+        </p>
+        <p class="subtitle is-5 spoiler mb-1">
+          Interrupt the Post request with BurpSuite and replace any field with an XInclude 
+          exploit to retrieve the secret file.
+        </p>
+        <hr>
+        <p class="title is-3">High Security Level</p>
+        <p class="subtitle is-5 my-3 mb-1">
+          The developer has disabled external entities and XIncludes for user submitted data.
+          None of the previous strategies will work. It is fully secure.
+        </p>
+        <hr>
+        <p class="title is-3">Bonus Challenge: Image Uploads</p>
+        <p class="subtitle is-5 my-3 mb-1">
+          The blogs support image uploads. From one of the blogs, we know that the server accepts
+          SVG files. This may be useful since SVG files can contain XML data.
+        </p>
+        <p class="subtitle is-5 mb-1">Hover to reveal hint: </p> 
+        <p class="subtitle is-5 spoiler mb-1">
+          Any of the previous strategies can be used  with BurpSuite to retrieve the secret file.
+          Except on high security level because external entities and XIncludes are disabled.
+        </p>
+      </section>
+      <footer class="modal-card-foot" style="display: flex; justify-content: end;">
+        <div class="buttons">
+          <button class="button">Close</button>
+        </div>
+      </footer>
     </div>
   </div>
 </body>

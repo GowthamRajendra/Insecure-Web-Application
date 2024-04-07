@@ -12,3 +12,15 @@
 .navbar-item {
     margin-right: 0px;
 }
+
+.spoiler{
+    display: inline-block;
+    background-color: gray;
+    color: transparent;
+    user-select: none;
+  }
+  
+  .spoiler:hover{
+    background-color: inherit;
+    color: inherit;
+  }

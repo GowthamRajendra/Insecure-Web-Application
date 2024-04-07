@@ -279,4 +279,47 @@ router.post('/postBlogImage', upload.single('image'), (req, res) => {
     }  
 });
 
+router.post('/postSecret', (req, res) => {
+    // get the secret
+    let secret = req.body.secret;
+
+    // open the txt file 
+    fs.readFile(path.join(__dirname, 'secret.txt'), 'utf-8', (err, data) => {
+        if (err) {
+            console.error(err);
+            res.status(500).send('Internal Server Error');
+            return;
+        }
+
+        if (data == secret) {
+            res.send('Correct');
+        } else {
+            res.send('Incorrect');
+        }
+    });
+
+});
+
+router.get('/resetDatabase', (req, res) => {
+    // read backup xml file
+    fs.readFile(path.join(__dirname, 'blogs-backup.xml'), 'utf-8', (err, data) => {
+        if (err) {
+            console.error(err);
+            res.status(500).send('Internal Server Error');
+            return;
+        }
+
+        // write the backup xml to the main xml file
+        fs.writeFile(path.join(__dirname, 'blogs.xml'), data, (err) => {
+            if (err) {
+                console.error(err);
+                res.status(500).send('Internal Server Error');
+                return;
+            }
+
+            res.send('Database reset successfully');
+        });
+    });
+});
+
 module.exports = router;

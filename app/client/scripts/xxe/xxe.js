@@ -1,3 +1,5 @@
+// related to actual implementation of the xxe attack
+
 document.addEventListener('DOMContentLoaded', function() {
 
     fetch('/xxe/getBlogs', { 
@@ -75,21 +77,12 @@ document.addEventListener('DOMContentLoaded', function() {
         blogElem.appendChild(bylineElem);
 
         let contentElem = document.createElement('p');
+        contentElem.classList.add('subtitle', 'is-5');
         contentElem.appendChild(document.createTextNode(blog.content));
-        contentElem.style.fontSize = '1.5rem';
         blogElem.appendChild(contentElem);
 
         return blogElem;
     }
-
-    // show the file name when a file is selected
-    const fileInput = document.querySelector(".file-input");
-    fileInput.onchange = () => {
-        if (fileInput.files.length > 0) {
-            const fileName = document.querySelector(".file-name");
-            fileName.textContent = fileInput.files[0].name;
-        }
-    };
 
     // post new blog
     document.getElementById('blog-form').addEventListener('submit', function(event) {
@@ -117,6 +110,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
             alert('Please add a title and content to the blog.');
             return;
+        } // or if title/content is more than 70 characters
+        else if (title.length > 70 || author.length > 70) {
+            title = title.substring(0, 70);
+
+            if (author.length > 70) {
+                author = author.substring(0, 70);
+            }
         }
 
         // change image name
@@ -125,7 +125,7 @@ document.addEventListener('DOMContentLoaded', function() {
             image = new File([image], imageName, {type: image.type});
         }
 
-        let cookie = document.cookie.split(';').find(cookie => cookie.includes('security'));
+        let cookie = document.cookie.split(';').find(cookie => cookie.includes('security='));
         let securityLevel = cookie ? cookie.split('=')[1] : 'Low';
 
         // if the security level is low, send the blog as xml
@@ -184,11 +184,63 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('blog-form').reset();
 
             // reload the page
-            window.location.reload();
+            window.location.href = '/xxe';
         }).catch(e => {
             console.log('Error: ' + e.message);
         });
 
+    });
+
+    // submitting the secret
+    document.getElementById('secret-form').addEventListener('submit', function(event) {
+        // prevet form from submitting normally
+        event.preventDefault();
+
+        let formData = new FormData(event.target);
+
+        let secret = formData.get('secret');
+
+        fetch('/xxe/postSecret', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body:  JSON.stringify({ "secret": secret })
+        }).then(response => {
+            return response.text();
+        }).then(data => {
+            let cookie = document.cookie.split(';').find(cookie => cookie.includes('security='));
+            let securityLevel = cookie ? cookie.split('=')[1] : 'Low';
+            let secretResponse = document.getElementById('secret-response');
+
+            if (data == 'Correct') {
+                secretResponse.textContent = 'Congratulations! You completed the challenge on ' + securityLevel + ' security.';                
+            } else {
+                secretResponse.textContent = 'Incorrect secret. Try again.';
+            }
+
+            document.getElementById('secret-form').reset();
+
+            document.getElementById('modal-secret-submit').classList.add('is-active');
+        }).catch(e => {
+            console.log('Error: ' + e.message);
+        });
+    });
+
+    document.getElementById('reset').addEventListener('click', function() {
+        // make a request to reset the db
+        fetch('/xxe/resetDatabase', {
+            method: 'GET'
+        }).then(response => {
+            return response.text();
+        }).then(data => {
+            console.log(data); // response fromserver
+
+            // reload the page
+            window.location.href = '/xxe';
+        }).catch(e => {
+            console.log('Error: ' + e.message);
+        });
     });
 
 });

@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
         let securityText = document.getElementById('sec-level').innerText;
         
         // get security level cookie
-        let cookie = document.cookie.split(';').find(cookie => cookie.includes('security'));
+        let cookie = document.cookie.split(';').find(cookie => cookie.includes('security='));
         let securityLevel = cookie ? cookie.split('=')[1] : 'Low';
         securityText = securityText + " " + securityLevel;
         document.getElementById('sec-level').innerText = securityText;
