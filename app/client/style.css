@@ -13,14 +13,28 @@
     margin-right: 0px;
 }
 
-.spoiler{
+#profile-post-container {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+#post-container {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.delete-icon {
+    filter: brightness(0) saturate(100%) invert(16%) sepia(96%) saturate(7212%) hue-rotate(2deg) brightness(104%) contrast(104%);
+}
+
+.spoiler {
     display: inline-block;
     background-color: gray;
     color: transparent;
     user-select: none;
-  }
+}
   
-  .spoiler:hover{
+.spoiler:hover {
     background-color: inherit;
     color: inherit;
-  }
+}

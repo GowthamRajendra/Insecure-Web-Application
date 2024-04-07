@@ -2,13 +2,11 @@
 
 For this project, you are permitted to work in a group of 3-5 students.  Please enter this information, below, and enter the same information into this [Google Sheet](https://docs.google.com/spreadsheets/d/1_ouEIs0xGsnJacby89R9Acjy80zxef26E4L2iUgYGhM/edit?usp=sharing) (along with your topic).
 
-| Group Member Name    | GitHub Username     |
-| -------------------- | ------------------- |
-| <member full name 1> | <member username 1> |
-| <member full name 2> | <member username 2> |
-| <member full name 3> | <member username 3> |
-| <member full name 4> | <member username 4> |
-| <member full name 5> | <member username 5> |
+| Group Member Name          | GitHub Username    |
+| :------------------------- |:------------------:|
+| Ravichandra Pogaku         | Ravi-Pogaku        |
+| Ivan Wang                  | Ivan-WangJianBin   |
+| Gowtham Rajendra           | GowthamRajendra    |
 
 *Note:  It is not possible to earn full marks if you are not part of a group (accessibility exceptions excluded, of course).*
 

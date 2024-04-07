@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/fontawesome.min.css">
+  <link rel="stylesheet" href="../../style.css">
+  <script src="../scripts/index.js"></script>
+  <script src="../scripts/sqli.js" defer></script>
+  <title>Website Name</title>
+</head>
+
+<body>
+  <section class="hero is-primary">
+    <div class="hero-body">
+        <div class="container has-text-centered">
+            <p class="title"> Website Name </p>
+            <p class="subtitle"> Buggy Website </p>
+        </div>
+    </div>
+  </section> 
+
+  <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+    <div class="navbar-menu is-active">
+      <div class="navbar-start">
+        <a class="navbar-item" href="/">
+          Home
+        </a>
+        <a class="navbar-item" href="/xxe">
+          XXE
+        </a>
+        <a class="navbar-item" href="/sqli">
+          SQLi
+        </a>
+        <a class="navbar-item" href="/bug3">
+          Bug3
+        </a>
+      </div>
+      <div class="navbar-end">
+        <a class="navbar-item" href="/sqli/profile">
+          Profile
+        </a>
+        <a class="navbar-item" href="/sqli/logout">
+          Logout
+        </a>
+      </div>
+    </div>
+  </nav>
+  <div id="completed-notif" class="notification is-primary" style="display: none;"></div>
+
+  <!-- https://bulma.io/documentation/helpers/spacing-helpers/ -->
+
+  <div class="columns is-centered">
+    <div class="column is-half">
+      <p class="my-5 title is-3 has-text-centered">SQLi</p>
+      <p id="sec-level" class="subtitle is-5 has-text-centered">Security Level: </p>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-content">
+      <div class="media">
+        <div class="media-content">
+          <p class="title is-4" id="profile-title">John Doe's profile</p>
+          <p class="subtitle is-6" id="profile-subtitle">@johndoe</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="profile-post-container" class="column"></div>
+  <template data-post-template>
+    <div class="card">
+        <header class="card-header">
+            <p class="card-header-title" data-title></p>
+            <button class="card-header-icon" data-delete-btn>
+                <span class="icon">
+                    <img class="delete-icon" src="../../icons/ban-solid.svg" alt="X">
+                </span>
+            </button>          
+        </header>
+        <div class="card-content">
+            <p class="subtitle is-6" data-username></p>
+            <div data-message></div>
+        </div>
+    </div>
+  </template>
+</body>
+
+</html>
