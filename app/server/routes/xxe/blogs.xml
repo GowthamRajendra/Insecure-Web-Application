@@ -1,7 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE foo [
-<!ENTITY xxe SYSTEM "file:///C:/Users/gowth/OneDrive/Documents/Fourth_Year/Software_Security/majorgroupproject2-wang-pogaku-rajendra/app/server/routes/xxe/secret.txt">
-]>
 <blogs>
   <blog>
     <image>image-1712180186914.jpg</image>

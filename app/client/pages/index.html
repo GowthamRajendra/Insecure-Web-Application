@@ -41,13 +41,13 @@
   </nav>
 </body>
 
-<!-- https://bulma.io/documentation/helpers/spacing-helpers/ -->
-
 <div class="columns is-centered">
   <div class="column is-half">
-    <h1 class="my-5">Welcome to buggy website. choose security level</h1>
+    <p class="title is-3 mt-5 has-text-centered">Welcome to {website name}</p>
+    <p id="sec-level" class="subtitle is-5 mt-5 has-text-centered">Current Security Level: </p>
+    <p class="subtitle is-5 mt-5 has-text-centered">You can change the security level below</p>
 
-    <form id="sec-form" action="/security" method="post">
+    <form style="margin-left: 37%;" id="sec-form" action="/security" method="post">
       <div class="field has-addons">
         <div class="control">
           <div class="select">
@@ -63,6 +63,46 @@
         </div>
       </div>
     </form> 
+
+    <p class="subtitle is-5 mt-5">
+      This is a vulnerable website. You can attempt the vulnerability challenges by clicking on the links in the navigation bar.
+    </p>
+    <p class="subtitle is-5 mt-5 mb-1">
+      Available vulnerabilities:
+    </p>
+    <div class="content">
+      <ul style="list-style-position: inside; list-style-type: none;">
+        <li class="subtitle is-5 mb-1">
+          <strong>XML External Entity (XXE) Injection</strong>: This vulnerability occurs when an attacker can alter the XML file to access sensitive data or execute remote code. 
+          This is usually done by including an external entity in the XML input. The main cause of this vulnerability is the lack of proper 
+          input validation and/or a weak XML parser.
+        </li>
+        <li class="subtitle is-5 mb-1">
+          <strong>SQL Injection</strong>: This vulnerability occurs when an attacker can access the SQL database to access sensitive data.
+          This is usually done by including malicious SQL commands in the input. The main cause of this vulnerability is the lack of proper input validation.
+        </li>
+        <li class="subtitle is-5 mb-1"><strong>Bug3</strong>: </li>
+      </ul>
+    </div>
+    <p class="subtitle is-5 mt-5">
+      There are three security levels: Low, Medium, and High. The security level can be changed by selecting the desired level from the dropdown menu above.
+    </p>
+    <p class="subtitle is-5 mt-5 mb-1">
+      Security levels:
+    </p>
+    <div class="content">
+      <ul style="list-style-position: inside; list-style-type: none;">
+        <li class="subtitle is-5 mb-1">
+          <strong>Low:</strong> This level is the least secure. There are no protections in place to prevent the vulnerabilities.
+        </li>
+        <li class="subtitle is-5 mb-1">
+          <strong>Medium:</strong> This level is more secure than the Low level. It has some protections in place to prevent the vulnerabilities. 
+          However, it is still possible to bypass these protections using alternative methods.
+        </li>
+        <li class="subtitle is-5 mb-1">
+          <strong>High:</strong> This level is the most secure. The vulnerability no longer exists at this level.
+        </li>
+      </ul>
   </div>
 </div>
 

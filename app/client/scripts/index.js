@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
 
+    // display security level
     if (document.getElementById('sec-level') !== null) {
         let securityText = document.getElementById('sec-level').innerText;
         
@@ -29,6 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 return response.text();
             }).then(data => {
                 console.log(data); // response fromserver
+                window.location.reload();
             }).catch(e => {
                 console.log('Error: ' + e.message);
             });

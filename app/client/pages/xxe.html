@@ -41,8 +41,6 @@
     </div>
   </nav>
 
-  <!-- https://bulma.io/documentation/helpers/spacing-helpers/ -->
-
   <div class="columns is-centered">
     <div class="column is-half">
       <p class="my-5 title is-3 has-text-centered">XML External Entity (XXE) Injection</p>
@@ -146,9 +144,24 @@
       </header>
       <section class="modal-card-body">
         <p class="title is-3">Objective</p>
-        <p class="subtitle is-5 mt-3 mb-1">Use XXE retrieve the secret file on the server.</p>
+        <p class="subtitle is-5 mb-1 mt-3">Use XXE retrieve the secret file on the server.</p>
         <p class="subtitle is-5 mb-1">Hover to reveal hint: </p> 
-        <p class="subtitle is-5 spoiler mb-1"> It is located at app/server/routes/xxe/secret.txt</p>
+        <p class="subtitle is-5 mb-1 spoiler"> It is located at app/server/routes/xxe/secret.txt</p>
+        <p class="subtitle is-5 mb-1">Some useful links:</p>
+        <div class="content">
+          <ol>
+            <li class="subtitle is-5 mb-1">
+              <p class="subtitle is-5 mb-1">
+                <a href="https://portswigger.net/web-security/xxe" target="_blank">PortSwigger</a>
+              </p>
+            </li>
+            <li class="subtitle is-5 mb-1">
+              <p class="subtitle is-5 mb-1">
+                <a href="https://owasp.org/www-community/vulnerabilities/XML_External_Entity_(XXE)_Processing" target="_blank">OWASP</a>
+              </p>
+            </li>
+          </ol>
+        </div>
         <p class="subtitle is-5"> Help for each level is below.</p>
         <hr>
         <p class="title is-3">Low Security Level</p>
