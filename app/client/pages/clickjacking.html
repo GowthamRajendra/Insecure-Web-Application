@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <p class="my-5 title is-3 has-text-centered">XML External Entity (XXE) Injection</p>
+  <p id="sec-level" class="subtitle is-5 has-text-centered">Security Level: </p>
+  <p id="display"></p>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
+  <link rel="stylesheet" href="../style.css">
+  <script src="../scripts/index.js"></script>
+  <script src="../scripts/clickjacking.js"></script>
+  <title>Website Name</title>
+</head>
+
+<body>
+  <section class="hero is-primary">
+    <div class="hero-body">
+        <div class="container has-text-centered">
+            <p class="my-5 title is-3 has-text-centered">Clickjacking</p>
+        </div>
+    </div>
+    </div>
+  </section> 
+
+  <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+    <div class="navbar-menu is-active">
+      <div class="navbar-start">
+        <a class="navbar-item" href="/">
+          Home
+        </a>
+        <a class="navbar-item" href="/bug1">
+          XXE
+        </a>
+        <a class="navbar-item" href="/bug2">
+          SQLi
+        </a>
+        <a class="navbar-item" href="/bug3">
+          Clickjacking
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- https://bulma.io/documentation/helpers/spacing-helpers/ -->
+<!-------------------------------------------------------------------------------->
+<div class="centered-content">
+  <p class="my-5">Clickjacking is also known as UI dressing, where the attacker tricks users <br>
+    into clicking things that were hidden over visible objects. It can be done <br> 
+    by embedding the target website in an iframe and making it invisible, or <br>
+    by simply turning a hidden object's opacity to 0. The goal of the user in <br>
+    this bug would be to identify where the clickjacking is happening and <br>
+    disable it before submitting the feedback.
+  </p>
+  <select id="difficulty" onchange="changeDifficulty()">
+    <option value="">Select difficulty</option>
+    <option value="/app/client/pages/bug3/clickjacking_easy.html">Easy</option>
+    <option value="/app/client/pages/bug3/clickjacking_medium.html">Medium</option>
+    <option value="/app/client/pages/bug3/clickjacking_hard.html">Hard</option>
+  </select>
+</div>
+
+</body>
+
+</html>
