@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function() {
     var iframeContainer = document.createElement("div");
     iframeContainer.id = "runtime";
     var iframe = document.createElement("background");
-    iframe.src = "https://example.com"; // Set the iframe source
+    iframe.src = "../bug3/clickjacking_easy.html"; // Set the iframe source
     iframeContainer.appendChild(iframe);
     body.appendChild(iframeContainer);
   });
