@@ -33,8 +33,8 @@
             <a class="navbar-item" href="/sqli">
               SQLi
             </a>
-            <a class="navbar-item" href="/bug3">
-              Bug3
+            <a class="navbar-item" href="/clickjacking">
+              Clickjacking
             </a>
           </div>
     </div>
@@ -81,7 +81,12 @@
           <strong>SQL Injection</strong>: This vulnerability occurs when an attacker can access the SQL database to access sensitive data.
           This is usually done by including malicious SQL commands in the input. The main cause of this vulnerability is the lack of proper input validation.
         </li>
-        <li class="subtitle is-5 mb-1"><strong>Bug3</strong>: </li>
+        <li class="subtitle is-5 mb-1"><strong>Clickjacking</strong>: Clickjacking is also known as UI dressing, where the attacker tricks users
+          into clicking things that were hidden over visible objects. It can be done
+          by embedding the target website in an iframe and making it invisible, or
+          by simply turning a hidden object's opacity to 0. The goal of the user in
+          this bug would be to identify where the clickjacking is happening and
+          disable it before submitting the feedback. </li>
       </ul>
     </div>
     <p class="subtitle is-5 mt-5">
