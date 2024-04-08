@@ -301,6 +301,53 @@ router.post('/postSecret', (req, res) => {
 });
 
 router.get('/resetDatabase', (req, res) => {
+    // delete images 
+    fs.readFile(path.join(__dirname, 'blogs-backup.xml'), 'utf-8', (err, data) => {
+        if (err) {
+            console.error(err);
+            res.status(500).send('Internal Server Error');
+            return;
+        }
+
+        const xmlDoc = libxmljs.parseXmlString(data);
+        const allElements = xmlDoc.root().childNodes();
+
+        // get all the images in the backup xml
+        let images = [];
+        for (let element of allElements) {
+            if (element.toString().includes('image')) {
+                for (let child of element.childNodes()) {
+                    if (child.name() == 'image') {
+                        images.push(child.text());
+                    }
+                }
+            }
+        }
+
+        // get all the images in the images folder
+        fs.readdir(path.join(__dirname, 'images'), (err, files) => {
+            if (err) {
+                console.error(err);
+                res.status(500).send('Internal Server Error');
+                return;
+            }
+
+            // delete images not in the backup xml
+            for (let file of files) {
+                if (!images.includes(file)) {
+                    fs.unlink(path.join(__dirname, 'images', file), (err) => {
+                        if (err) {
+                            console.error(err);
+                            res.status(500).send('Internal Server Error');
+                            return;
+                        }
+                    });
+                }
+            }
+        });
+    });
+
+
     // read backup xml file
     fs.readFile(path.join(__dirname, 'blogs-backup.xml'), 'utf-8', (err, data) => {
         if (err) {
