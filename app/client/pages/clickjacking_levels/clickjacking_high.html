@@ -7,11 +7,11 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
   <link rel="stylesheet" href="../../style.css">
   <script src="../../scripts/index.js"></script>
-  <script src="../../scripts/clickjacking2.js"></script>
+  <script src="../../scripts/clickjacking3.js"></script>
   <title>Website Name</title>
 </head>
 
-<body>    
+<body oncontextmenu="event.preventDefault();">    
     <section class="hero is-primary">
         <div class="hero-body">
             <div class="container has-text-centered">
@@ -41,10 +41,11 @@
   </nav>
 
 <!-------------------------------------------------------------------------------->
+
 <div class="centered-content">
     <p class="my-5 title is-3 has-text-centered">Clickjacking</p>
     <p id="sec-level" class="subtitle is-5 has-text-centered">Security Level: </p>
-    <h2 class="my-5">Task: Succeed in entering the feedback (Try and find the problem)</h2>
+    <h2 class="my-5">Task: Succeed in entering the feedback and receiving it in alert</h2>
     <textarea id="myTextarea" rows="10" cols="100" placeholder="Enter feedbacks here" style="resize: none;">
     </textarea>
     <div class="button-container">
