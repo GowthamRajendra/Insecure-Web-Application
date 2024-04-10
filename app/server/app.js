@@ -3,7 +3,7 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const xxe = require("./routes/xxe/xxeServer.js");
 const sqli = require("./routes/sqliServer.js");
-const bug3 = require("./routes/bug3.js");
+const clickjacking = require("./routes/clickjackingServer.js");
 const session = require('express-session');
 const store = new session.MemoryStore();
 
@@ -28,7 +28,7 @@ app.use(session({
 
 app.use('/xxe', xxe);
 app.use('/sqli', sqli);
-app.use('/bug3', bug3);
+app.use('/clickjacking', clickjacking);
 
 app.get('/', (req, res) => {    
     // if there is no security cookie, set it to low

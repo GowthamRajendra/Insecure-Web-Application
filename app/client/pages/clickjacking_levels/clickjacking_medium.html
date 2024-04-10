@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
+  <link rel="stylesheet" href="../../style.css">
+  <script src="../../scripts/index.js"></script>
+  <script src="../../scripts/clickjacking2.js"></script>
+  <title>iWAPP</title>
+</head>
+
+<body>    
+    <section class="hero is-primary">
+        <div class="hero-body">
+            <div class="container has-text-centered">
+                <p class="title"> iWAPP </p>
+                <p class="subtitle"> An Insecure Web Application </p>
+            </div>
+        </div>
+    </section> 
+
+  <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+    <div class="navbar-menu is-active">
+      <div class="navbar-start">
+        <a class="navbar-item" href="/">
+          Home
+        </a>
+        <a class="navbar-item" href="/xxe">
+          XXE
+        </a>
+        <a class="navbar-item" href="/sqli">
+          SQLi
+        </a>
+        <a class="navbar-item" href="/clickjacking">
+          Clickjacking
+        </a>
+      </div>
+    </div>
+  </nav>
+
+<!-------------------------------------------------------------------------------->
+<div class="centered-content">
+    <p class="my-5 title is-3 has-text-centered">Clickjacking</p>
+    <p id="sec-level" class="subtitle is-5 has-text-centered">Security Level: </p>
+    <h2 class="my-5">Task: Succeed in entering the feedback and receiving it in alert</h2>
+    <textarea id="myTextarea" rows="10" cols="100" placeholder="Enter feedbacks here" style="resize: none;">
+    </textarea>
+    <div class="button-container">
+      <button class="clickjack-button" onclick="alert('Submission failed! Try again.')">Hidden Button</button>
+      <button class="visible-button" onclick="handleClick()">Submit</button>
+    </div>
+  </div>
+<!-------------------------------------------------------------------------------->
+</body>
+
+</html>
