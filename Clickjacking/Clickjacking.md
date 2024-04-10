@@ -4,17 +4,10 @@
 Clickjacking is also known as UI redressing attack. It is a technique where the attacker tricks the user into clicking a hidden element, or trick the user into believing that they are clicking an actual part of the page while redirecting their clicks to something malicious. This can typically be done by overlaying invisible or opacitiy 0 elements over existing elements and making sure that it is over the legit buttons therefore making the user click the wrong button or anything else unknowningly.
 
 ## Types of Clickjacking bugs
-
-- Cursorjacking
-- Filejacking
-- Likejacking
-- Cookiejacking
-- Clickjacking
-- Transparent Overlay
-- Etc
+<img src='./ClickjackExample.png' width=60%>
 
 ## Transparent Overlay
-
+<img src='./Clickjacking.png' width=60%>
 The type that was focuse in the challenges was transparent overlay. This type of attack is done by overlaying an invisible element over an visible legit looking in order to trick the user into clicking it. This can be done by either creating an iframe where within, another website can be open up, or the usual average button works too. It is turned invisible by changing the display and opacitiy in css, then carefully place over the legit buttons or text boxes so that when a user attempts to interact with the legitimate elements, they'll instead touch the malicious hidden ones. An example of this is shown in both easy and medium difficulties. 
 
 ## Low
