@@ -2,17 +2,7 @@ const devtools = { isOpen: false };
 const threshold = 160;
 
 window.addEventListener('resize', () => {
-  const widthThreshold = window.outerWidth - window.innerWidth > threshold;
-  const heightThreshold = window.outerHeight - window.innerHeight > threshold;
-
-  if (widthThreshold || heightThreshold) {
-    if (!devtools.isOpen) {
-      devtools.isOpen = true;
-      window.location.href = '../pages/index.html';
-    }
-  } else {
-    devtools.isOpen = false;
-  }
+  checkDevTools();
 });
 
 window.addEventListener('keydown', function(event) {
@@ -34,6 +24,8 @@ window.addEventListener('keydown', function(event) {
 });
 
 document.addEventListener("DOMContentLoaded", function() {
+    checkDevTools();
+    
     const body = document.getElementsByTagName("body")[0];
     const iframeContainer = document.createElement("div");
 
@@ -44,6 +36,20 @@ document.addEventListener("DOMContentLoaded", function() {
     iframeContainer.appendChild(iframe);
     body.appendChild(iframeContainer);
 });
+
+function checkDevTools() {
+  const widthThreshold = window.outerWidth - window.innerWidth > threshold;
+  const heightThreshold = window.outerHeight - window.innerHeight > threshold;
+
+  if (widthThreshold || heightThreshold) {
+    if (!devtools.isOpen) {
+      devtools.isOpen = true;
+      window.location.href = '/';
+    }
+  } else {
+    devtools.isOpen = false;
+  }
+}
 
 function handleClick() {
     const textarea = document.getElementById('myTextarea');
