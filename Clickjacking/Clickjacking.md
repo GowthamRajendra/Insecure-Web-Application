@@ -27,5 +27,9 @@ A similar but more complicated method is used for medium with an iframe implemen
 While for hard, the usual ways of simply looking through the content of the page via dev tool is blocked which makes it more difficult to find out what is happening on the page, but should the user get past that, opening or resizing the page in any manners will simply redirect them to another page hence ensuring that the dev tool can not be used to get pass said bug. 
 
 ## Credits
+https://www.imperva.com/learn/application-security/clickjacking/#:~:text=Clickjacking%20is%20an%20attack%20that,money%2C%20or%20purchase%20products%20online.
 https://www.appknox.com/cyber-security-jargons/clickjacking
+https://securitytrails.com/blog/clickjacking-attacks
+https://en.wikipedia.org/wiki/Clickjacking
+
 
